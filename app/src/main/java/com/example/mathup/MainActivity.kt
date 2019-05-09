@@ -10,41 +10,47 @@ class MainActivity : AppCompatActivity() {
     lateinit private var mRecyclerView: RecyclerView
     lateinit private var mAdapter: subjectCardAdapter
     lateinit private var mLayoutManager: RecyclerView.LayoutManager
-    lateinit private var mText: TextView
+    lateinit private var mWelcomeMessage: TextView
+    lateinit private var mUsername: String
+    private var mNumStars: Int = 0 //just temp init val. Gets updated by a file read
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         fun initCardList(): ArrayList<subjectCard> {
-            val exampleCardList = ArrayList<subjectCard>()
-            exampleCardList.add(subjectCard("Addition", "2+2=?"))
-            exampleCardList.add(subjectCard("Subtraction", "10-8=?"))
-            exampleCardList.add(subjectCard("Time", "11:52 P.M."))
-            return exampleCardList
+            //Setting up list of subject cards. This should allow for easy scaling going forward
+            val subjectCardList = ArrayList<subjectCard>()
+            subjectCardList.add(subjectCard("Addition", "2+2=?"))
+            subjectCardList.add(subjectCard("Subtraction", "10-8=?"))
+            subjectCardList.add(subjectCard("Time", "11:52 P.M."))
+            return subjectCardList
         }
 
-        fun MainActivity.test() {return}
+        fun mainActivityView() {
+            //function for creating main activity View
+            var subjectCardList = initCardList() //list of subject cards
 
-
-        fun createView() {
-            var exampleCardList = initCardList()
-
+            //setting up recyclerView and adding cards
             mRecyclerView = findViewById(R.id.recyclerView)
             mRecyclerView.setHasFixedSize(true)
             mLayoutManager = LinearLayoutManager(this)
-            mAdapter = subjectCardAdapter(exampleCardList, this)
+            mAdapter = subjectCardAdapter(subjectCardList, this)
 
             mRecyclerView.layoutManager = mLayoutManager
             mRecyclerView.adapter = mAdapter
 
-            mText = findViewById(R.id.welcome_message)
-            mText.setText("Hello Ryan! So far you have 25 ⭐️ stars! Let's keep going!")
+            mNumStars = 25 //temp while working on app
+            mUsername = "Ryan" //initializing this temporarily while working on app. Will switch to a file read
+            mWelcomeMessage = findViewById(R.id.welcome_message)
+            mWelcomeMessage.setText("Hello " + mUsername + ". So far you have " + mNumStars + "⭐️s! Let's keep going!")
         }
 
+        fun firstBootView() {} //Setup later for to setup first boot view
 
+        //TODO if statement determining whether or not this is the first time the app is starting up
 
-        createView()
+        mainActivityView()
 
     }
 }

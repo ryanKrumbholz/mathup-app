@@ -1,13 +1,9 @@
 package com.example.mathup
 
-import android.content.Context
-import android.support.v7.widget.CardView
-import android.view.View
-
 class subjectCard {
+    //creating subjectCard class
     private var mTitle: String
     private var mText: String
-    lateinit private var newView: View
 
     constructor(mTitle: String, mText: String) {
         this.mTitle = mTitle
