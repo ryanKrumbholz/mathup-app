@@ -1,18 +1,14 @@
 package com.example.mathup
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.View
-import android.widget.Adapter
 import android.widget.TextView
-import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     lateinit private var mRecyclerView: RecyclerView
-    lateinit private var mAdapter: ExampleAdapter
+    lateinit private var mAdapter: subjectCardAdapter
     lateinit private var mLayoutManager: RecyclerView.LayoutManager
     lateinit private var mText: TextView
 
@@ -20,11 +16,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fun initCardList(): ArrayList<ExampleCard> {
-            val exampleCardList = ArrayList<ExampleCard>()
-            exampleCardList.add(ExampleCard("Addition", "2+2=?"))
-            exampleCardList.add(ExampleCard("Subtraction", "10-8=?"))
-            exampleCardList.add(ExampleCard("Time", "11:52 P.M."))
+        fun initCardList(): ArrayList<subjectCard> {
+            val exampleCardList = ArrayList<subjectCard>()
+            exampleCardList.add(subjectCard("Addition", "2+2=?"))
+            exampleCardList.add(subjectCard("Subtraction", "10-8=?"))
+            exampleCardList.add(subjectCard("Time", "11:52 P.M."))
             return exampleCardList
         }
 
@@ -37,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             mRecyclerView = findViewById(R.id.recyclerView)
             mRecyclerView.setHasFixedSize(true)
             mLayoutManager = LinearLayoutManager(this)
-            mAdapter = ExampleAdapter(exampleCardList, this)
+            mAdapter = subjectCardAdapter(exampleCardList, this)
 
             mRecyclerView.layoutManager = mLayoutManager
             mRecyclerView.adapter = mAdapter

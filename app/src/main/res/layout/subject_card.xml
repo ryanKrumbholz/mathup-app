@@ -23,21 +23,30 @@
         <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/cardTitle"
-                android:background="@android:color/transparent" android:layout_alignParentBottom="true"
-                android:layout_marginBottom="85dp" android:layout_alignParentStart="true"
-                android:layout_marginLeft="15dp" android:layout_marginStart="15dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/cardTitle"
+                android:background="@android:color/transparent"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="85dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:layout_alignParentLeft="true"/>
         <TextView
                 android:text="TextView"
-                android:layout_width="190dp"
-                android:layout_height="wrap_content" android:id="@+id/cardText"
-                android:background="@android:color/transparent" android:layout_marginBottom="12dp"
-                android:layout_alignParentBottom="true" android:layout_marginLeft="156dp"
-                android:layout_marginStart="156dp"
-                android:layout_alignLeft="@+id/cardTitle" android:layout_alignStart="@+id/cardTitle"
+                android:layout_width="265dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/cardText"
+                android:background="@android:color/transparent"
+                android:layout_marginBottom="12dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="81dp"
+                android:layout_marginStart="81dp"
+                android:layout_alignLeft="@+id/cardTitle"
+                android:layout_alignStart="@+id/cardTitle"
                 android:gravity="right"
                 android:paddingRight="10dp"
-                android:textColor="@color/fadedTextColor"/>
+                android:textColor="@color/fadedTextColor"
+                android:textSize="36sp"/>
     </RelativeLayout>
 </android.support.v7.widget.CardView>

@@ -27,6 +27,7 @@
             android:layout_marginTop="10dp"
             android:paddingBottom="35dp"
             app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="sans-serif-light"
     />
     <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"

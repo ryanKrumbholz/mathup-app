@@ -4,7 +4,7 @@ import android.content.Context
 import android.support.v7.widget.CardView
 import android.view.View
 
-class ExampleCard {
+class subjectCard {
     private var mTitle: String
     private var mText: String
     lateinit private var newView: View
