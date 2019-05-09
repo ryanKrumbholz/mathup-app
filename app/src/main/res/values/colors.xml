@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bgColor">#9FE5FF</color>
+    <color name="secondaryBgColor">#F7F9F9</color>
+    <color name="wrongAnswerColor">#F82525</color>
+    <color name="rightAnswerColor">#094014</color>
+    <color name="textColor">#091540</color>
+    <color name="fadedTextColor">#80091540</color>
+</resources>
