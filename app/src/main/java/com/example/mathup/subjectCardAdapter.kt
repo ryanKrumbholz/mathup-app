@@ -27,7 +27,6 @@ class subjectCardAdapter: RecyclerView.Adapter<subjectCardAdapter.CardViewHolder
             mText = cardView.findViewById(R.id.cardText)
             this.context = context
         }
-
     }
 
     constructor(subjectList: ArrayList<subjectCard>, context: Context) {
@@ -38,6 +37,7 @@ class subjectCardAdapter: RecyclerView.Adapter<subjectCardAdapter.CardViewHolder
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CardViewHolder {
         //todo rename var names
         var v = LayoutInflater.from(p0.getContext()).inflate(R.layout.subject_card, p0, false)
+
         var evh = CardViewHolder(v,context)
         return evh
     }

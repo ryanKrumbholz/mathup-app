@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
             val subjectCardList = ArrayList<subjectCard>()
             subjectCardList.add(subjectCard("Addition", "2+2=?"))
             subjectCardList.add(subjectCard("Subtraction", "10-8=?"))
+//            subjectCardList.add(subjectCard("Shapes", "Circle"))
             subjectCardList.add(subjectCard("Time", "11:52 P.M."))
             return subjectCardList
         }
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
             //setting up recyclerView and adding cards
             mRecyclerView = findViewById(R.id.recyclerView)
-            mRecyclerView.setHasFixedSize(true)
+            mRecyclerView.setHasFixedSize(false)
             mLayoutManager = LinearLayoutManager(this)
             mAdapter = subjectCardAdapter(subjectCardList, this)
 
