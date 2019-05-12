@@ -8,7 +8,7 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
     lateinit private var mRecyclerView: RecyclerView
-    lateinit private var mAdapter: subjectCardAdapter
+    lateinit private var mAdapter: SubjectCardAdapter
     lateinit private var mLayoutManager: RecyclerView.LayoutManager
     lateinit private var mWelcomeMessage: TextView
     lateinit private var mUsername: String
@@ -18,13 +18,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        fun initCardList(): ArrayList<subjectCard> {
+        fun initCardList(): ArrayList<SubjectCard> {
             //Setting up list of subject cards. This should allow for easy scaling going forward
-            val subjectCardList = ArrayList<subjectCard>()
-            subjectCardList.add(subjectCard("Addition", "2+2=?"))
-            subjectCardList.add(subjectCard("Subtraction", "10-8=?"))
-//            subjectCardList.add(subjectCard("Shapes", "Circle"))
-            subjectCardList.add(subjectCard("Time", "11:52 P.M."))
+            val subjectCardList = ArrayList<SubjectCard>()
+            subjectCardList.add(SubjectCard("Addition", "2+2=?"))
+            subjectCardList.add(SubjectCard("Subtraction", "10-8=?"))
+            subjectCardList.add(SubjectCard("Time", "11:52 P.M."))
             return subjectCardList
         }
 
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             mRecyclerView = findViewById(R.id.recyclerView)
             mRecyclerView.setHasFixedSize(false)
             mLayoutManager = LinearLayoutManager(this)
-            mAdapter = subjectCardAdapter(subjectCardList, this)
+            mAdapter = SubjectCardAdapter(subjectCardList, this)
 
             mRecyclerView.layoutManager = mLayoutManager
             mRecyclerView.adapter = mAdapter

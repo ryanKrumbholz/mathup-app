@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-class subjectCardAdapter: RecyclerView.Adapter<subjectCardAdapter.CardViewHolder> {
-    private var mSubjectList: ArrayList<subjectCard>
-    lateinit private var context:Context
+class SubjectCardAdapter: RecyclerView.Adapter<SubjectCardAdapter.CardViewHolder> {
+    private var mSubjectList: ArrayList<SubjectCard>
+    private var context: Context
     class CardViewHolder: RecyclerView.ViewHolder {
-        lateinit private var context:Context
+        private var context:Context
         var mTitle: TextView
         var mText: TextView
 
@@ -29,7 +29,7 @@ class subjectCardAdapter: RecyclerView.Adapter<subjectCardAdapter.CardViewHolder
         }
     }
 
-    constructor(subjectList: ArrayList<subjectCard>, context: Context) {
+    constructor(subjectList: ArrayList<SubjectCard>, context: Context) {
         mSubjectList = subjectList
         this.context = context
     }
@@ -37,7 +37,6 @@ class subjectCardAdapter: RecyclerView.Adapter<subjectCardAdapter.CardViewHolder
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CardViewHolder {
         //todo rename var names
         var v = LayoutInflater.from(p0.getContext()).inflate(R.layout.subject_card, p0, false)
-
         var evh = CardViewHolder(v,context)
         return evh
     }

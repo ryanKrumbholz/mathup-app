@@ -1,7 +1,7 @@
 package com.example.mathup
 
-class subjectCard {
-    //creating subjectCard class
+class SubjectCard {
+    //creating SubjectCard class
     private var mTitle: String
     private var mText: String
 
