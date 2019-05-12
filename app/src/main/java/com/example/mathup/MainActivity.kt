@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             val subjectCardList = ArrayList<SubjectCard>()
             subjectCardList.add(SubjectCard("Addition", "2+2=?"))
             subjectCardList.add(SubjectCard("Subtraction", "10-8=?"))
-            subjectCardList.add(SubjectCard("Time", "11:52 P.M."))
+//            subjectCardList.add(SubjectCard("Time", "11:52 P.M."))
             return subjectCardList
         }
 
