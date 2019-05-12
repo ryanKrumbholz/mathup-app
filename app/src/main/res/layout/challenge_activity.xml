@@ -4,4 +4,80 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="0dp">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"
+            >
+        <TextView
+                android:layout_marginTop="150dp"
+                android:text="problem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView" android:textSize="50sp"/>
+        <android.support.constraint.ConstraintLayout
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="115dp"
+                android:layout_marginRight="115dp"
+                android:layout_width="125dp"
+                android:layout_height="80dp" android:background="@drawable/line"
+        />
+        <android.support.constraint.ConstraintLayout
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" android:background="@drawable/container">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="0dp"
+                    android:background="@android:color/transparent">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="0dp"
+                        android:background="@android:color/transparent">
+                    <TextView
+                            android:text="TextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/textView2"
+                            android:background="@drawable/container"
+                            android:layout_margin="0dp"/>
+                    <TextView
+                            android:text="TextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/textView3"
+                            android:background="@drawable/container"
+                            android:layout_margin="0dp"/>
+                    <TextView
+                            android:text="TextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/textView4"
+                            android:background="@drawable/container"
+                            android:layout_margin="0dp"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:background="@android:color/transparent"
+                        android:layout_margin="0dp">
+                    <TextView
+                            android:text="TextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/textView6"
+                            android:background="@drawable/container"
+                            android:layout_margin="0dp"/>
+                    <TextView
+                            android:text="TextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/textView5"
+                            android:background="@drawable/container"
+                            android:layout_margin="0dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
