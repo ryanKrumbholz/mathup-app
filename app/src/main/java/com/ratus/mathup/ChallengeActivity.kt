@@ -1,7 +1,8 @@
-package com.example.mathup
+package com.ratus.mathup
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.example.mathup.R
 
 class ChallengeActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -9,5 +10,7 @@ class ChallengeActivity: AppCompatActivity() {
         setContentView(R.layout.challenge_activity)
 
         //Todo build rest of activity class
+
+
     }
 }

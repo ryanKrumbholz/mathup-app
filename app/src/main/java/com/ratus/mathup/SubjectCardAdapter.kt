@@ -1,23 +1,24 @@
-package com.example.mathup
+package com.ratus.mathup
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.mathup.R
 
-class SubjectCardAdapter: RecyclerView.Adapter<SubjectCardAdapter.CardViewHolder> {
+class SubjectCardAdapter: androidx.recyclerview.widget.RecyclerView.Adapter<SubjectCardAdapter.CardViewHolder> {
     private var mSubjectList: ArrayList<SubjectCard>
     private var context: Context
-    class CardViewHolder: RecyclerView.ViewHolder {
+    class CardViewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder {
         private var context:Context
         var mTitle: TextView
         var mText: TextView
 
         fun switchActivity() {
-            var intent: Intent = Intent(context,SkillTreeActivity::class.java)
+            var intent: Intent = Intent(context, SkillTreeActivity::class.java)
             context.startActivity(intent)
         }
 
@@ -37,7 +38,7 @@ class SubjectCardAdapter: RecyclerView.Adapter<SubjectCardAdapter.CardViewHolder
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CardViewHolder {
         //todo rename var names
         var v = LayoutInflater.from(p0.getContext()).inflate(R.layout.subject_card, p0, false)
-        var evh = CardViewHolder(v,context)
+        var evh = CardViewHolder(v, context)
         return evh
     }
 

@@ -1,15 +1,16 @@
-package com.example.mathup
+package com.ratus.mathup
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
+import com.example.mathup.R
 
 class MainActivity : AppCompatActivity() {
-    lateinit private var mRecyclerView: RecyclerView
+    lateinit private var mRecyclerView: androidx.recyclerview.widget.RecyclerView
     lateinit private var mAdapter: SubjectCardAdapter
-    lateinit private var mLayoutManager: RecyclerView.LayoutManager
+    lateinit private var mLayoutManager: androidx.recyclerview.widget.RecyclerView.LayoutManager
     lateinit private var mWelcomeMessage: TextView
     lateinit private var mUsername: String
     private var mNumStars: Int = 0 //just temp init val. Gets updated by a file read
@@ -21,11 +22,35 @@ class MainActivity : AppCompatActivity() {
         fun initCardList(): ArrayList<SubjectCard> {
             //Setting up list of subject cards. This should allow for easy scaling going forward
             val subjectCardList = ArrayList<SubjectCard>()
-            subjectCardList.add(SubjectCard("Addition", "2+2=?"))
-            subjectCardList.add(SubjectCard("Subtraction", "10-8=?"))
+            subjectCardList.add(
+                SubjectCard(
+                    "Addition",
+                    "2+2=?",
+                    arrayOf("Ones", "Tens", "Mixed", "Hundreds", "Mixed")
+                )
+            )
+            subjectCardList.add(
+                SubjectCard(
+                    "Subtraction",
+                    "10-8=?",
+                    arrayOf("Ones", "Tens", "Mixed", "Hundreds", "Mixed")
+                )
+            )
             subjectCardList.add(SubjectCard("Time", "11:52 P.M."))
-            subjectCardList.add(SubjectCard("Multiplication", "4*4=?"))
-            subjectCardList.add(SubjectCard("Division", "32/4=?"))
+            subjectCardList.add(
+                SubjectCard(
+                    "Multiplication",
+                    "4*4=?",
+                    arrayOf("Ones", "Tens", "Mixed", "Hundreds", "Mixed")
+                )
+            )
+            subjectCardList.add(
+                SubjectCard(
+                    "Division",
+                    "32/4=?",
+                    arrayOf("Ones", "Tens", "Mixed", "Hundreds", "Mixed")
+                )
+            )
             return subjectCardList
         }
 
@@ -36,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             //setting up recyclerView and adding cards
             mRecyclerView = findViewById(R.id.recyclerView)
             mRecyclerView.setHasFixedSize(false)
-            mLayoutManager = LinearLayoutManager(this)
+            mLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
             mAdapter = SubjectCardAdapter(subjectCardList, this)
 
             mRecyclerView.layoutManager = mLayoutManager

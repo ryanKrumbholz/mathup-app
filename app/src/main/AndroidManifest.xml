@@ -10,7 +10,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:hardwareAccelerated="true">
-        <activity android:name=".MainActivity" android:screenOrientation="portrait">
+        <activity android:name="com.ratus.mathup.MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".SkillTreeActivity"
+                android:name="com.ratus.mathup.SkillTreeActivity"
                 android:label="Preferences"
                 android:screenOrientation="portrait">
             <intent-filter>

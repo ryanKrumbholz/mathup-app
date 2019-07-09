@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1079831131396",
+    "firebase_url": "https://mathup-71bec.firebaseio.com",
+    "project_id": "mathup-71bec",
+    "storage_bucket": "mathup-71bec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079831131396:android:00166d78d04e7de3",
+        "android_client_info": {
+          "package_name": "com.ratus.mathup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079831131396-16vf995u67egnd57h94he0corn0mpejj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE2O6z5ATW1oV4aKDGpAoSR8lN13UnIek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079831131396-16vf995u67egnd57h94he0corn0mpejj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
