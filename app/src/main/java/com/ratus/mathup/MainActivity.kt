@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //TODO Setup login screen for app and integrate with firebase
+
         fun initCardList(): ArrayList<SubjectCard> {
             //Setting up list of subject cards. This should allow for easy scaling going forward
             val subjectCardList = ArrayList<SubjectCard>()
@@ -75,9 +77,16 @@ class MainActivity : AppCompatActivity() {
 
         fun firstBootView() {} //Setup later for to setup first boot view
 
-        //TODO if statement determining whether or not this is the first time the app is starting up
+        //TODO build lambda for this var
+        var loggedIn = true
 
-        mainActivityView()
+
+        if (loggedIn) {
+            mainActivityView()
+        }
+        else {
+            firstBootView()
+        }
 
     }
 }
