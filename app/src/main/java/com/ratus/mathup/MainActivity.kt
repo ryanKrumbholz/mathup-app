@@ -6,7 +6,9 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
+import android.widget.Toast
 import com.example.mathup.R
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     lateinit private var mRecyclerView: androidx.recyclerview.widget.RecyclerView
@@ -80,16 +82,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //TODO build lambda for this var
-        var loggedIn = true
-
-
-        if (loggedIn) {
-            mainActivityView()
-        }
-        else {
-            loginActivityView()
-        }
+        loginActivityView()
 
     }
 }
