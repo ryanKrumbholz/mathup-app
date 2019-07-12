@@ -7,7 +7,7 @@ import com.example.mathup.R
 class LoginScreenActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.skill_tree_layout)
-        //Todo build rest of activity class
+        setContentView(R.layout.login_acitivty)
+        //Todo build rest of login class
     }
 }
