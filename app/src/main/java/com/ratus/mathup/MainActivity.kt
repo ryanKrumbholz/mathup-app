@@ -1,5 +1,6 @@
 package com.ratus.mathup
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -75,17 +76,20 @@ class MainActivity : AppCompatActivity() {
             mWelcomeMessage.setText("Hello " + mUsername + ". So far you have " + mNumStars + "⭐️s! Let's keep going!")
         }
 
-        fun firstBootView() {} //Setup later for to setup first boot view
+        fun loginActivityView() {
+            var intent: Intent = Intent(this, LoginScreenActivity::class.java)
+            startActivity(intent)
+        }
 
         //TODO build lambda for this var
-        var loggedIn = true
+        var loggedIn = false
 
 
         if (loggedIn) {
             mainActivityView()
         }
         else {
-            firstBootView()
+            loginActivityView()
         }
 
     }

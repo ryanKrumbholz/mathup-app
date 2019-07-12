@@ -26,6 +26,24 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+                android:name="com.ratus.mathup.LoginScreenActivity"
+                android:label="Preferences"
+                android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.iphonik.chameleon.AppPreferenceActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+                android:name="com.ratus.mathup.ChallengeActivity"
+                android:label="Preferences"
+                android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.iphonik.chameleon.AppPreferenceActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
