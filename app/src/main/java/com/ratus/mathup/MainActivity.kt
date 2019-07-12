@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     private var mNumStars: Int = 0 //just temp init val. Gets updated by a file read
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //TODO Setup login screen for app and integrate with firebase
 
         fun initCardList(): ArrayList<SubjectCard> {
             //Setting up list of subject cards. This should allow for easy scaling going forward
@@ -83,12 +82,7 @@ class MainActivity : AppCompatActivity() {
             mWelcomeMessage.setText("Hello " + username + ". So far you have " + mNumStars + "⭐️s! Let's keep going!")
         }
 
-        fun loginActivityView() {
-            var intent: Intent = Intent(this, LoginScreenActivity::class.java)
-            startActivity(intent)
-        }
         mainActivityView()
-        loginActivityView()
-        finish()
+
     }
 }

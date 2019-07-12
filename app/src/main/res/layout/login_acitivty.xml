@@ -35,7 +35,7 @@
                 android:layout_height="50dp"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/username" android:background="@drawable/container"
+                android:id="@+id/email" android:background="@drawable/container"
                 android:layout_gravity="center" android:textColor="@color/textColor"/>
         <TextView
                 android:text="Password:"

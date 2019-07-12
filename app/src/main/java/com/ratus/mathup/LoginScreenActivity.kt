@@ -36,14 +36,18 @@ class LoginScreenActivity: AppCompatActivity() {
 
         val currentUser = auth.currentUser
 
-        var emailField = findViewById(R.id.username) as EditText
+        var emailField = findViewById(R.id.email) as EditText
         val pwordField = findViewById(R.id.pword) as EditText
 
         loginBtn.setOnClickListener {
             email = emailField.text.toString()
             pword = pwordField.text.toString()
-
-            passwordSignIn(email, pword)
+            if (email == "" || pword == "") {
+                passwordSignIn("null", "null")
+            }
+            else {
+                passwordSignIn(email, pword)
+            }
         }
 
         sighBtn.setOnClickListener { createAccount() }
@@ -76,7 +80,6 @@ class LoginScreenActivity: AppCompatActivity() {
     }
 
     fun createAccount() {
-        //TODO make this
         var intent = Intent(this, CreateAccountActivity::class.java)
         startActivity(intent)
     }
