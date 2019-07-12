@@ -17,9 +17,6 @@ class MainActivity : AppCompatActivity() {
     private var mNumStars: Int = 0 //just temp init val. Gets updated by a file read
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
         //TODO Setup login screen for app and integrate with firebase
 
         fun initCardList(): ArrayList<SubjectCard> {
@@ -58,6 +55,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         fun mainActivityView() {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
             //function for creating main activity View
             var subjectCardList = initCardList() //list of subject cards
 
@@ -82,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //TODO build lambda for this var
-        var loggedIn = false
+        var loggedIn = true
 
 
         if (loggedIn) {
