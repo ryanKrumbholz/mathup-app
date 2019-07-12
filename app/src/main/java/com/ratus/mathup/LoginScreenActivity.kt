@@ -3,6 +3,9 @@ package com.ratus.mathup
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mathup.R
@@ -15,6 +18,9 @@ class LoginScreenActivity: AppCompatActivity() {
     private var userStatus : Boolean = false
     private lateinit var email : String
     private lateinit var pword : String
+    private lateinit var loginBtn : Button
+    private lateinit var sighBtn : Button
+    private val TAG = "MainActivity"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,13 +33,25 @@ class LoginScreenActivity: AppCompatActivity() {
     }
 
     public override fun onStart() {
+
         super.onStart()
         val currentUser = auth.currentUser
+
+        loginBtn = findViewById(R.id.login)
+        sighBtn = findViewById(R.id.signup)
+
+        loginBtn.setOnClickListener {
+            email = findViewById<EditText>(R.id.username).text.toString()
+            pword = findViewById<EditText>(R.id.pword).text.toString()
+            passwordSignIn(email, pword)
+        }
+        sighBtn.setOnClickListener { createAccount() }
+
         if (currentUser != null) {
-//            switchActivity()
+            mainActivity()
         }
         else {
-//            passwordSignIn(email,pword)
+            passwordSignIn(email, pword)
         }
 
     }
@@ -43,20 +61,23 @@ class LoginScreenActivity: AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-//                    Log.d(TAG, "passwordSignIn:success")
+                    Log.d(TAG, "passwordSignIn:success")
                     val user = auth.currentUser
-                    switchActivity()
+                    mainActivity()
                 }
                 else {
+                    Log.d(TAG, "passwordSignIn:failed")
                     Toast.makeText(baseContext, "Incorrect Username or Password.",
                         Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
-    fun switchActivity() {
-        var intent: Intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+    fun mainActivity() {
+    }
+
+    fun createAccount() {
+
     }
 
 
