@@ -1,18 +1,14 @@
 package com.ratus.mathup
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mathup.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 class LoginScreenActivity: AppCompatActivity() {
 
@@ -46,6 +42,7 @@ class LoginScreenActivity: AppCompatActivity() {
         loginBtn.setOnClickListener {
             email = emailField.text.toString()
             pword = pwordField.text.toString()
+
             passwordSignIn(email, pword)
         }
 
@@ -62,7 +59,6 @@ class LoginScreenActivity: AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "passwordSignIn:success")
-                    val user = auth.currentUser
                     mainActivity()
                 }
                 else {
@@ -74,14 +70,15 @@ class LoginScreenActivity: AppCompatActivity() {
     }
 
     fun mainActivity() {
-        //TODO do this right
+        var intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
         finish()
     }
 
     fun createAccount() {
         //TODO make this
-//        var intent: Intent = Intent(this, MainActivity::class.java)
-//        startActivity(intent)
+        var intent = Intent(this, CreateAccountActivity::class.java)
+        startActivity(intent)
     }
 
 }

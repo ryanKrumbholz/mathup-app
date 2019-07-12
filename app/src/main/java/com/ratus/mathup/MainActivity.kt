@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() {
 
             mWelcomeMessage = findViewById(R.id.welcome_message)
 
+            //TODO connect to firebase
             username = "Ryan"
             mNumStars = 25
 
@@ -87,6 +88,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         loginActivityView()
-        mainActivityView()
+//        mainActivityView()
     }
 }
