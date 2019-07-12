@@ -1,8 +1,10 @@
 package com.ratus.mathup
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -22,40 +24,38 @@ class LoginScreenActivity: AppCompatActivity() {
     private lateinit var sighBtn : Button
     private val TAG = "MainActivity"
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_acitivty)
 
         auth = FirebaseAuth.getInstance()
-
-        //Todo build rest of login class
     }
 
     public override fun onStart() {
 
         super.onStart()
-        val currentUser = auth.currentUser
 
         loginBtn = findViewById(R.id.login)
         sighBtn = findViewById(R.id.signup)
 
+        val currentUser = auth.currentUser
+
+        var emailField = findViewById(R.id.username) as EditText
+        val pwordField = findViewById(R.id.pword) as EditText
+
         loginBtn.setOnClickListener {
-            email = findViewById<EditText>(R.id.username).text.toString()
-            pword = findViewById<EditText>(R.id.pword).text.toString()
+            email = emailField.text.toString()
+            pword = pwordField.text.toString()
             passwordSignIn(email, pword)
         }
+
         sighBtn.setOnClickListener { createAccount() }
 
         if (currentUser != null) {
             mainActivity()
         }
-        else {
-            passwordSignIn(email, pword)
-        }
 
     }
-
 
     fun passwordSignIn(email : String, password : String) {
         auth.signInWithEmailAndPassword(email, password)
@@ -67,18 +67,21 @@ class LoginScreenActivity: AppCompatActivity() {
                 }
                 else {
                     Log.d(TAG, "passwordSignIn:failed")
-                    Toast.makeText(baseContext, "Incorrect Username or Password.",
+                    Toast.makeText(baseContext, "Incorrect Username/Password.",
                         Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
     fun mainActivity() {
+        //TODO do this right
+        finish()
     }
 
     fun createAccount() {
-
+        //TODO make this
+//        var intent: Intent = Intent(this, MainActivity::class.java)
+//        startActivity(intent)
     }
-
 
 }

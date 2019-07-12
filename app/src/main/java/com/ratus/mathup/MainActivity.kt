@@ -1,5 +1,6 @@
 package com.ratus.mathup
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.mathup.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     lateinit private var mAdapter: SubjectCardAdapter
     lateinit private var mLayoutManager: androidx.recyclerview.widget.RecyclerView.LayoutManager
     lateinit private var mWelcomeMessage: TextView
-    lateinit private var mUsername: String
+    private lateinit var username : String
     private var mNumStars: Int = 0 //just temp init val. Gets updated by a file read
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,18 +74,19 @@ class MainActivity : AppCompatActivity() {
             mRecyclerView.layoutManager = mLayoutManager
             mRecyclerView.adapter = mAdapter
 
-            mNumStars = 25 //temp while working on app
-            mUsername = "Ryan" //initializing this temporarily while working on app. Will switch to a file read
             mWelcomeMessage = findViewById(R.id.welcome_message)
-            mWelcomeMessage.setText("Hello " + mUsername + ". So far you have " + mNumStars + "⭐️s! Let's keep going!")
+
+            username = "Ryan"
+            mNumStars = 25
+
+            mWelcomeMessage.setText("Hello " + username + ". So far you have " + mNumStars + "⭐️s! Let's keep going!")
         }
 
         fun loginActivityView() {
             var intent: Intent = Intent(this, LoginScreenActivity::class.java)
             startActivity(intent)
         }
-
         loginActivityView()
-
+        mainActivityView()
     }
 }
