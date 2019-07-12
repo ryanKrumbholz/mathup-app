@@ -87,7 +87,8 @@ class MainActivity : AppCompatActivity() {
             var intent: Intent = Intent(this, LoginScreenActivity::class.java)
             startActivity(intent)
         }
+        mainActivityView()
         loginActivityView()
-//        mainActivityView()
+        finish()
     }
 }

@@ -30,6 +30,7 @@
                 android:layout_gravity="center"
                 android:textColor="@color/textColor"/>
         <EditText
+                android:paddingLeft="10dp"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:inputType="textPersonName"
@@ -43,6 +44,7 @@
                 android:layout_height="wrap_content" android:id="@+id/textView10"
                 android:layout_gravity="center" android:textColor="@color/textColor"/>
         <EditText
+                android:paddingLeft="10dp"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:inputType="textPassword"
