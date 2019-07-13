@@ -19,6 +19,8 @@ class LoginScreenActivity: AppCompatActivity() {
     private lateinit var loginBtn : Button
     private lateinit var sighBtn : Button
     private val TAG = "MainActivity"
+    private lateinit var emailField : EditText
+    private lateinit var pwordField : EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,27 +32,16 @@ class LoginScreenActivity: AppCompatActivity() {
     public override fun onStart() {
 
         super.onStart()
-
-        loginBtn = findViewById(R.id.login)
-        sighBtn = findViewById(R.id.signup)
-
         val currentUser = auth.currentUser
-
-        var emailField = findViewById(R.id.email) as EditText
-        val pwordField = findViewById(R.id.pword) as EditText
+        initUI()
 
         loginBtn.setOnClickListener {
-            email = emailField.text.toString()
-            pword = pwordField.text.toString()
-            if (email == "" || pword == "") {
-                passwordSignIn("null", "null")
-            }
-            else {
-                passwordSignIn(email, pword)
-            }
+            getUIData()
         }
 
-        sighBtn.setOnClickListener { createAccount() }
+        sighBtn.setOnClickListener {
+            createAccount()
+        }
 
         if (currentUser != null) {
             mainActivity()
@@ -82,6 +73,24 @@ class LoginScreenActivity: AppCompatActivity() {
     fun createAccount() {
         var intent = Intent(this, CreateAccountActivity::class.java)
         startActivity(intent)
+    }
+
+    fun initUI() {
+        loginBtn = findViewById(R.id.login)
+        sighBtn = findViewById(R.id.signup)
+        emailField = findViewById(R.id.email) as EditText
+        pwordField = findViewById(R.id.pword) as EditText
+    }
+
+    fun getUIData() {
+        email = emailField.text.toString()
+        pword = pwordField.text.toString()
+        if (email == "" || pword == "") {
+            passwordSignIn("null", "null")
+        }
+        else {
+            passwordSignIn(email, pword)
+        }
     }
 
 }

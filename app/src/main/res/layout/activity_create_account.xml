@@ -71,7 +71,7 @@
                 android:layout_height="50dp"
                 android:inputType="textPassword"
                 android:ems="10"
-                android:id="@+id/pwordVerification" android:background="@drawable/container"
+                android:id="@+id/pwordVerif" android:background="@drawable/container"
                 android:layout_gravity="center" android:textColor="@color/textColor"/>
         <Button
                 android:text="Complete"
