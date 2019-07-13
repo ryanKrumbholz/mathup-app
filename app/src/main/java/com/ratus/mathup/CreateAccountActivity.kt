@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.example.mathup.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.analytics.FirebaseAnalytics
 
 
 class CreateAccountActivity : AppCompatActivity() {
@@ -34,6 +35,7 @@ class CreateAccountActivity : AppCompatActivity() {
         setContentView(R.layout.activity_create_account)
 
         auth = FirebaseAuth.getInstance()
+
 
         initUI()
 
