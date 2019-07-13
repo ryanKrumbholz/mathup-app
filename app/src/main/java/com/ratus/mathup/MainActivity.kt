@@ -14,14 +14,17 @@ import com.google.firebase.auth.FirebaseUser
 import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var auth : FirebaseAuth
     lateinit private var mRecyclerView: androidx.recyclerview.widget.RecyclerView
     lateinit private var mAdapter: SubjectCardAdapter
     lateinit private var mLayoutManager: androidx.recyclerview.widget.RecyclerView.LayoutManager
     lateinit private var mWelcomeMessage: TextView
-    private lateinit var username : String
-    private var mNumStars: Int = 0 //just temp init val. Gets updated by a file read
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        //TODO Get rid of TOAST color
 
         fun initCardList(): ArrayList<SubjectCard> {
             //Setting up list of subject cards. This should allow for easy scaling going forward
@@ -58,10 +61,7 @@ class MainActivity : AppCompatActivity() {
             return subjectCardList
         }
 
-        fun mainActivityView() {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
-            //function for creating main activity View
+        fun setupRecyclerView() {
             var subjectCardList = initCardList() //list of subject cards
 
             //setting up recyclerView and adding cards
@@ -69,17 +69,23 @@ class MainActivity : AppCompatActivity() {
             mRecyclerView.setHasFixedSize(false)
             mLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
             mAdapter = SubjectCardAdapter(subjectCardList, this)
-
             mRecyclerView.layoutManager = mLayoutManager
             mRecyclerView.adapter = mAdapter
+        }
 
+        fun makeWelcomeMessage() {
+            //TODO Fix this and get it to properly interact with firebase
             mWelcomeMessage = findViewById(R.id.welcome_message)
+            auth = FirebaseAuth.getInstance()
+            var user = auth.currentUser
+            val username = user?.displayName
+            val numStars = 0
+            mWelcomeMessage.setText("Hello " + username + ". So far you have " + numStars + "⭐️s! Let's keep going!")
+        }
 
-            //TODO connect to firebase
-            username = "Ryan"
-            mNumStars = 25
-
-            mWelcomeMessage.setText("Hello " + username + ". So far you have " + mNumStars + "⭐️s! Let's keep going!")
+        fun mainActivityView() {
+            setupRecyclerView()
+            makeWelcomeMessage()
         }
 
         mainActivityView()

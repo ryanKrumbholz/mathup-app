@@ -13,7 +13,6 @@ import com.google.firebase.auth.FirebaseAuth
 class LoginScreenActivity: AppCompatActivity() {
 
     private lateinit var auth : FirebaseAuth
-    private var userStatus : Boolean = false
     private lateinit var email : String
     private lateinit var pword : String
     private lateinit var loginBtn : Button
