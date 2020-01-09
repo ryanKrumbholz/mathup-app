@@ -9,9 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.mathup.R
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
+import kotlinx.android.synthetic.main.activity_create_account.*
 import kotlin.math.log
 import kotlin.random.Random
 
@@ -28,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        database = FirebaseDatabase.getInstance().reference
+//        database = FirebaseFirestore.getInstance()
 
         //TODO Get rid of TOAST color
 
@@ -85,8 +88,8 @@ class MainActivity : AppCompatActivity() {
             auth = FirebaseAuth.getInstance()
             var user = auth.currentUser
             val username = user?.displayName
-            val numStars = Random(10)
-            mWelcomeMessage.setText("Hello " + username + ". So far you have " + numStars + "⭐️s! Let's keep going!")
+            val numStars = Random.nextInt(0,100)
+            mWelcomeMessage.setText("Hello " + username + ". So far you have " + numStars + "⭐️ stars! Let's keep going!")
         }
 
         fun mainActivityView() {

@@ -9,7 +9,7 @@ import android.widget.Toast
 import com.example.mathup.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
-import com.google.firebase.analytics.FirebaseAnalytics
+
 
 
 class CreateAccountActivity : AppCompatActivity() {
@@ -25,6 +25,7 @@ class CreateAccountActivity : AppCompatActivity() {
     private lateinit var pwordField : EditText
     private lateinit var pwordVerifField : EditText
     private lateinit var completeBtn : Button
+//    private lateinit var database
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -73,7 +74,7 @@ class CreateAccountActivity : AppCompatActivity() {
     }
 
     fun meetRequirements() : Boolean {
-        if (isNotEmpty() && doPwordsMatch() && (username.length <= 15) && (pword.length >= 6)) {
+        if (isNotEmpty() && doPwordsMatch() && (username.length <= 15) && (username.length >= 3) && (pword.length >= 6)) {
             return true
         }
         else {
@@ -104,6 +105,7 @@ class CreateAccountActivity : AppCompatActivity() {
         pwordVerifField = findViewById(R.id.pwordVerif) as EditText
 
         completeBtn = findViewById(R.id.signup)
+//        database = FirebaseDatabase.getInstance().reference
     }
 
     fun getUIData() {
