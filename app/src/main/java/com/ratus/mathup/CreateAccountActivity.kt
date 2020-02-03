@@ -9,7 +9,7 @@ import android.widget.Toast
 import com.example.mathup.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
-
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class CreateAccountActivity : AppCompatActivity() {
@@ -25,7 +25,7 @@ class CreateAccountActivity : AppCompatActivity() {
     private lateinit var pwordField : EditText
     private lateinit var pwordVerifField : EditText
     private lateinit var completeBtn : Button
-//    private lateinit var database
+    private val database = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -63,6 +63,20 @@ class CreateAccountActivity : AppCompatActivity() {
             }
         var profileUpdates = UserProfileChangeRequest.Builder().setDisplayName(username).build()
         auth.currentUser?.updateProfile(profileUpdates)
+
+        val user = hashMapOf(
+            "username" to username,
+            "stars" to 0
+        )
+
+        database.collection("users")
+            .add(user)
+            .addOnSuccessListener { documentReference ->
+            Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+        }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error adding document", e)
+            }
     }
 
     fun doPwordsMatch() : Boolean {
@@ -105,7 +119,6 @@ class CreateAccountActivity : AppCompatActivity() {
         pwordVerifField = findViewById(R.id.pwordVerif) as EditText
 
         completeBtn = findViewById(R.id.signup)
-//        database = FirebaseDatabase.getInstance().reference
     }
 
     fun getUIData() {

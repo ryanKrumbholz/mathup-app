@@ -14,6 +14,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_create_account.*
 import kotlin.math.log
 import kotlin.random.Random
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     lateinit private var mAdapter: SubjectCardAdapter
     lateinit private var mLayoutManager: androidx.recyclerview.widget.RecyclerView.LayoutManager
     lateinit private var mWelcomeMessage: TextView
-//    private lateinit var database: DatabaseReference
+    private val database = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,6 +84,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         fun makeWelcomeMessage() {
+//            database.collection("users")
+//                .document("<uid>")
+//                .get()
             //TODO Fix this and get it to properly interact with firebase
             mWelcomeMessage = findViewById(R.id.welcome_message)
             auth = FirebaseAuth.getInstance()
