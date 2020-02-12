@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 import com.example.mathup.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.random.Random
 
@@ -12,10 +13,10 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth : FirebaseAuth
-    lateinit private var mRecyclerView: androidx.recyclerview.widget.RecyclerView
-    lateinit private var mAdapter: SubjectCardAdapter
-    lateinit private var mLayoutManager: androidx.recyclerview.widget.RecyclerView.LayoutManager
-    lateinit private var mWelcomeMessage: TextView
+    lateinit private var recyclerView: androidx.recyclerview.widget.RecyclerView
+    lateinit private var adapter: SubjectCardAdapter
+    lateinit private var layoutManager: androidx.recyclerview.widget.RecyclerView.LayoutManager
+    lateinit private var welcomeMessage: TextView
     private val database = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,25 +65,37 @@ class MainActivity : AppCompatActivity() {
             var subjectCardList = initCardList() //list of subject cards
 
             //setting up recyclerView and adding cards
-            mRecyclerView = findViewById(R.id.recyclerView)
-            mRecyclerView.setHasFixedSize(false)
-            mLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
-            mAdapter = SubjectCardAdapter(subjectCardList, this)
-            mRecyclerView.layoutManager = mLayoutManager
-            mRecyclerView.adapter = mAdapter
+            recyclerView = findViewById(R.id.recyclerView)
+            recyclerView.setHasFixedSize(false)
+            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
+            adapter = SubjectCardAdapter(subjectCardList, this)
+            recyclerView.layoutManager = layoutManager
+            recyclerView.adapter = adapter
         }
 
         fun makeWelcomeMessage() {
-//            database.collection("users")
-//                .document("<uid>")
-//                .get()
-            //TODO Fix this and get it to properly interact with firebase
-            mWelcomeMessage = findViewById(R.id.welcome_message)
+            //TODO Fix database read numStars read and username read
+
+            welcomeMessage = findViewById(R.id.welcome_message)
             auth = FirebaseAuth.getInstance()
+
             var user = auth.currentUser
             val username = user?.displayName
-            val numStars = Random.nextInt(0,100)
-            mWelcomeMessage.setText("Hello " + username + ". So far you have " + numStars + "⭐️ stars! Let's keep going!")
+            var numStars = 999
+
+//            val docref = database.collection("users")
+//                .document(username.toString())
+//            docref.get().addOnCompleteListener { task ->
+//                if (task.isSuccessful) {
+//                   numStars = task.result?.get("num_stars").toString()
+//
+//                } else {
+//                    task.exception
+//
+//                }
+//            }
+
+            welcomeMessage.setText("Hello " + username + ". So far you have " + numStars + "⭐️ stars! Let's keep going!")
         }
 
         fun mainActivityView() {

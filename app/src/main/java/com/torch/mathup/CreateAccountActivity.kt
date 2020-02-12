@@ -31,6 +31,8 @@ class CreateAccountActivity : AppCompatActivity() {
 
         //TODO Add more requirements for accounts (IE: Check if username is unique, Toast for email already in use, etc)
         //TODO Add verification page?
+        //TODO Fix Writing to firestore (currently doesn't work at all)
+        //TODO Fix Username writing to account
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
@@ -66,7 +68,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
         val user = hashMapOf(
             "username" to username,
-            "stars" to 0
+            "num_stars" to 0
         )
 
         database.collection("users")
