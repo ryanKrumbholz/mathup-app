@@ -10,7 +10,7 @@
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         android:paddingTop="25dp"
-        tools:context="com.ratus.mathup.MainActivity"
+        tools:context="com.torch.mathup.MainActivity"
         android:theme="@style/AppTheme">
     <LinearLayout
             android:orientation="vertical"

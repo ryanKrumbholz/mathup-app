@@ -1,4 +1,4 @@
-package com.ratus.mathup
+package com.torch.mathup
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

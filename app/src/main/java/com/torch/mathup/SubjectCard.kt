@@ -1,4 +1,4 @@
-package com.ratus.mathup
+package com.torch.mathup
 
 class SubjectCard {
     //creating SubjectCard class

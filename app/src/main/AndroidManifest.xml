@@ -11,7 +11,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name="com.ratus.mathup.CreateAccountActivity"
+                android:name="com.torch.mathup.CreateAccountActivity"
                 android:label="Preferences"
                 android:screenOrientation="portrait">
             <intent-filter>
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name="com.ratus.mathup.MainActivity"
+                android:name="com.torch.mathup.MainActivity"
                 android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.iphonik.chameleon.AppPreferenceActivity"/>
@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name="com.ratus.mathup.SkillTreeActivity"
+                android:name="com.torch.mathup.SkillTreeActivity"
                 android:label="Preferences"
                 android:screenOrientation="portrait">
             <intent-filter>
@@ -40,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name="com.ratus.mathup.LoginScreenActivity"
+                android:name="com.torch.mathup.LoginScreenActivity"
                 android:label="MathUp!"
                 android:screenOrientation="portrait">
             <intent-filter>
@@ -50,7 +50,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name="com.ratus.mathup.ChallengeActivity"
+                android:name="com.torch.mathup.ChallengeActivity"
                 android:label="Preferences"
                 android:screenOrientation="portrait">
             <intent-filter>

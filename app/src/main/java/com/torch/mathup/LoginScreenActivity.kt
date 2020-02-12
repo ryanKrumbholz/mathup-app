@@ -1,4 +1,4 @@
-package com.ratus.mathup
+package com.torch.mathup
 
 import android.content.Intent
 import android.os.Bundle
